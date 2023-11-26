@@ -1,10 +1,5 @@
 
-html {
-
-}
-
-body {
-  min-height: 100%;
+html, body {
   height: 100%;
   width: 100%;
 }
@@ -12,31 +7,28 @@ body {
 .outer{
   display: flex;
   flex-flow: column;
-  height: 100%;
-}
-.container-fluid{
-  width:100%;
-  height:100%;
-  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 
-.row_center{
-  height:80%
+.btn-primary{
+  border-color:#2a730b !important;
 }
-
-.row_start{
-  height:10%
-}
-.row_end{
-  height:10%
-}
-
 .top{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5CDB95;
+  background-color : #2a730b;
   height: 100px;
+}
+.station_title{
+  text-align: center;
+  font-size: xx-large;
+  background-color: #3f9f1a;
+}
+
+.center_station{
+ height:auto;
 }
 
 .bottom{
@@ -50,8 +42,34 @@ body {
   margin-top: 10px;
 }
 
-#title{
-  color : #05386B;
+.bottom_menu{
+  display: flex;
+  height: 150px;
+  background-color : #000;
+}
+
+.button_menu{
+  background-color : #2a730b !important;
+}
+
+.right_button{
+  background-color : #2a730b !important;
+}
+.margin_right{
+  margin-right: 3px;
+  background-color : #2a730b !important;
+}
+
+.title{
+  color : #000000;
+  text-align: center;
+  font: bold 36px Consolas;
+}
+
+.go_back{
+  background-color: #1c4d07 !important;
+  text-align: center;
+  font: bold 36px;
 }
 
 .button{
@@ -123,3 +141,4 @@ body {
     pointer-events:none;
     opacity:0.4;
 }
+
