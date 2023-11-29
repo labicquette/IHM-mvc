@@ -10,7 +10,18 @@ html, body {
   height: 100vh;
   width: 100%;
 }
+.inner_body{
+  margin-top: 30px;
+}
 
+.wrapper_stat_title{
+  height: 65px;
+}
+
+.row_sliding{
+  overflow-x: scroll;
+  height: 100px;
+}
 .btn-primary{
   border-color:#2a730b !important;
 }
@@ -25,6 +36,7 @@ html, body {
   text-align: center;
   font-size: xx-large;
   background-color: #3f9f1a;
+  height: 50px;
 }
 
 .center_station{

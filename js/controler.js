@@ -10,6 +10,17 @@ class updateText extends Observer{
   }
 }
 
+class updateLignes extends Observer {
+  constructor(view){
+    super()
+    this.view = view
+  }
+  update(observable, object){
+    
+  }
+  
+}
+
 
 class Controler {
 

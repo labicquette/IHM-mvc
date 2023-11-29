@@ -13,6 +13,9 @@ class View {
 
     this.row_start_inner = document.createElement('div')
     this.row_center_inner = document.createElement('div')
+    this.row_center_inner2 = document.createElement('div')
+    this.row_sliding_hor = document.createElement('div')
+
 
     this.left = document.createElement('div');
     this.right = document.createElement('div')
@@ -20,6 +23,8 @@ class View {
     this.center.textContent = "AffluNantes"
     this.center_title = document.createElement('div')
     this.center_title.textContent = "Commerce"
+    this.center_void_left = document.createElement('div')
+    this.center_void_right = document.createElement('div')
 
   
     this.left2 = document.createElement('div');
@@ -72,11 +77,15 @@ class View {
     this.row_center.classList.add("row", "flex-fill", "inner_body")
     this.row_center.setAttribute("id", "inner_body")
 
-    this.row_center_inner.classList.add("row")
-    
+    this.row_center_inner.classList.add("row", 'align-items-center', 'wrapper_stat_title')
+    this.row_center_inner2.classList.add("row")
+
+    this.row_sliding_hor.classList.add("row", "row_sliding")
 
 
-    this.center_title.classList.add('col', 'station_title')
+    this.center_title.classList.add('col', 'station_title', 'border', 'rounded-pill')
+    this.center_void_left.classList.add('col')
+    this.center_void_right.classList.add('col')
 
     //END
     this.row_end.classList.add("row", "bottom_menu", 'd-flex', 'btn-toolbar')
@@ -101,6 +110,8 @@ class View {
     
 
     nodeParent.appendChild(this.row_start);
+    nodeParent.appendChild(this.row_center_inner);
+    nodeParent.appendChild(this.row_sliding_hor);
     nodeParent.appendChild(this.row_center);
     nodeParent.appendChild(this.row_end);
 
@@ -110,17 +121,19 @@ class View {
 
     this.left.appendChild(this.go_back_but)
 
-    this.row_center.appendChild(this.row_center_inner);
+    this.row_center.appendChild(this.row_center_inner2);
+    this.row_center_inner.appendChild(this.center_void_left)
     this.row_center_inner.appendChild(this.center_title);
+    this.row_center_inner.appendChild(this.center_void_right)
 
 
     this.center2.appendChild(this.moins)
     this.center2.appendChild(this.plus)
     this.center2.appendChild(this.text)
 
-    this.row_center.appendChild(this.left2);
-    this.row_center.appendChild(this.center2);
-    this.row_center.appendChild(this.right2)
+    this.row_center_inner2.appendChild(this.left2);
+    this.row_center_inner2.appendChild(this.center2);
+    this.row_center_inner2.appendChild(this.right2)
 
     this.row_end.appendChild(this.bot_left_but)
     this.row_end.appendChild(this.bot_cent_left_but)

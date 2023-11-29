@@ -6,6 +6,7 @@ class Model extends Observable {
     constructor(){
         super();
         this.entier = 0;
+        this.listLignes = [];
         this.changed = false;
     }
 
@@ -30,11 +31,6 @@ class Model extends Observable {
         this.setChanged();
         this.notifyObservers();
     }
-    updatePlus(obs, obj){
-        
-    }
-    updateMoins(obs, obj){
 
-    }
 
 }
