@@ -147,6 +147,31 @@ class View {
   }
 
   addTransports(lines){
-    //add here the view of each line
+    this.transport = []
+    var child = this.row_sliding_hor.lastElementChild
+    while (child) { 
+      this.row_sliding_hor.removeChild(child); 
+      child = this.row_sliding_hor.lastElementChild; 
+    } 
+
+    lines.forEach(element => {
+      var temp = document.createElement('button')
+      temp.classList.add('btn')
+      temp.textContent = element.text
+      if (element.color === "green"){
+        temp.classList.add('btn-success')
+      }
+      if (element.color === "red"){
+        temp.classList.add('btn-danger')
+      }
+      if (element.color === "blue"){
+        temp.classList.add('btn-primary')
+      }
+      this.transport.push(temp)
+    });
+    this.transport.forEach(element => {
+      this.row_sliding_hor.appendChild(element)
+    })
+    
   }
 }

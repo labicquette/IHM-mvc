@@ -16,7 +16,7 @@ class updateLignes extends Observer {
     this.view = view
   }
   update(observable, object){
-    
+    this.view.addTransports(observable.lignes)
   }
   
 }
@@ -35,9 +35,11 @@ class Controler {
         if(event.key === 'Enter'){this.model.input(event)}};
       // update
 
+      let updateLigne = new updateLignes(this.view)
       let updateT = new updateText(this.view)
       //
       this.model.addObservers(updateT);
+      this.model.addObservers(updateLigne);
 
 
       //  action

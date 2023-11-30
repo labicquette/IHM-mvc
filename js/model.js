@@ -6,7 +6,17 @@ class Model extends Observable {
     constructor(){
         super();
         this.entier = 0;
-        this.listLignes = [];
+        this.lignes = [] //here change with backend call
+        var t1 = Object()
+            t1.color = 'blue'
+            t1.text = "T1"
+        var t2 = Object()
+            t2.color = 'red'
+            t2.text = "T3"
+        var t3 = Object()
+            t3.color = 'green'
+            t3.text = "T3"
+        this.lignes = [t1,t2,t3]
         this.changed = false;
     }
 
