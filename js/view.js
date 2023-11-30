@@ -142,9 +142,11 @@ class View {
 
     this.left2.appendChild(this.but1)
     this.right2.appendChild(this.but2)
-  
-    
 
 
+  }
+
+  addTransports(lines){
+    //add here the view of each line
   }
 }
