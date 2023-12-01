@@ -46,6 +46,23 @@ class View {
     this.bot_cent_right_but = document.createElement('button')
     this.bot_right_but = document.createElement('button')
 
+    this.pic_1 = document.createElement('img')
+    this.pic_1.src = "resources/home.png"
+    this.pic_1.width = 100
+    
+    this.pic_2 = document.createElement('img')
+    this.pic_2.src = "resources/search.png"
+    this.pic_2.width = 100
+
+    this.pic_3 = document.createElement('img')
+    this.pic_3.src = "resources/star.png"
+    this.pic_3.width = 100
+
+    this.pic_4 = document.createElement('img')
+    this.pic_4.src = "resources/vlc.png"
+    this.pic_4.width = 100
+
+
     this.go_back_but = document.createElement('button')
     this.go_back_but.textContent = "<-"
 
@@ -111,6 +128,8 @@ class View {
     this.bot_cent_right_but.classList.add('btn', 'btn-primary', 'col',  'margin_right')
     this.bot_right_but.classList.add('btn', 'btn-primary', 'col', 'right_button')
 
+
+
     this.left.classList.add("col")
     this.center.classList.add("col", 'title')
     this.right.classList.add("col")
@@ -163,6 +182,11 @@ class View {
     this.row_end.appendChild(this.bot_cent_right_but)
     this.row_end.appendChild(this.bot_right_but)
 
+
+    this.bot_left_but.appendChild(this.pic_1)
+    this.bot_cent_left_but.appendChild(this.pic_2)
+    this.bot_cent_right_but.appendChild(this.pic_3)
+    this.bot_right_but.appendChild(this.pic_4)
     // this.left2.appendChild(this.but1)
     // this.right2.appendChild(this.but2)
 
@@ -209,7 +233,6 @@ class View {
       child = this.row_sliding_vert.lastElementChild; 
     }
     if(obj === null){
-      console.log("WORKING");
       element.forEach(e => {
         var lrow = document.createElement('div')
         lrow.classList.add('row', 'align-items-center', "row_lignes")
