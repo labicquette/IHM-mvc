@@ -43,7 +43,7 @@ class Controler {
 
 
       //  action
-
+      
       this.view.plus.addEventListener('click', actionPlus);
       this.view.moins.addEventListener('click', actionMoins);
       this.view.text.addEventListener('keypress', actionInput)

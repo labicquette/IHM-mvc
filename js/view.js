@@ -15,6 +15,7 @@ class View {
     this.row_center_inner = document.createElement('div')
     this.row_center_inner2 = document.createElement('div')
     this.row_sliding_hor = document.createElement('div')
+    this.row_sliding_vert = document.createElement('div')
 
 
     this.left = document.createElement('div');
@@ -82,6 +83,7 @@ class View {
 
     this.row_sliding_hor.classList.add("row", "row_sliding")
 
+    this.row_sliding_vert.classList.add("row","flex-fill", "row_sliding_vert")
 
     this.center_title.classList.add('col', 'station_title', 'border', 'rounded-pill')
     this.center_void_left.classList.add('col')
@@ -112,6 +114,7 @@ class View {
     nodeParent.appendChild(this.row_start);
     nodeParent.appendChild(this.row_center_inner);
     nodeParent.appendChild(this.row_sliding_hor);
+    nodeParent.appendChild(this.row_sliding_vert);
     nodeParent.appendChild(this.row_center);
     nodeParent.appendChild(this.row_end);
 
@@ -155,6 +158,8 @@ class View {
     } 
 
     lines.forEach(element => {
+      var column = document.createElement('div')
+      column.classList.add('col-md-auto')
       var temp = document.createElement('button')
       temp.classList.add('btn')
       temp.textContent = element.text
@@ -167,11 +172,34 @@ class View {
       if (element.color === "blue"){
         temp.classList.add('btn-primary')
       }
-      this.transport.push(temp)
+      temp.classList.add('btn_slider')
+      column.appendChild(temp)
+      this.transport.push(column)
     });
     this.transport.forEach(element => {
       this.row_sliding_hor.appendChild(element)
     })
-    
+  }
+
+  addIncomingLines(element){
+    this.lines = []
+    var child = this.row_sliding_vert.lastElementChild
+    while (child) { 
+      this.row_sliding_vert.removeChild(child); 
+      child = this.row_sliding_vert.lastElementChild; 
+    }
+    element.forEach(e => {
+      var lrow = document.createElement('div')
+      lrow.classList.add('row-md-auto')
+      var lcol1 = document.createElement('div')
+      lcol1.classList.add('col')
+      lcol1.textContent = e.ligne
+      var lcol2 = document.createElement('div')
+      lcol2.classList.add('col')
+      lcol2.textContent = e.destination
+      var lcol3 = document.createElement('div')
+      lcol3.classList.add('col')
+      lcol3.textContent = e.temps
+    })    
   }
 }

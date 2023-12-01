@@ -18,9 +18,18 @@ html, body {
   height: 65px;
 }
 
+.btn_slider{
+  height:150px;
+  width:150px;
+}
+
 .row_sliding{
   overflow-x: scroll;
-  height: 100px;
+  flex-wrap: nowrap !important;
+}
+.row_sliding_vert{
+  overflow-y: scroll;
+  flex-wrap: nowrap !important;
 }
 .btn-primary{
   border-color:#2a730b !important;
