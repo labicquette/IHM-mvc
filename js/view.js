@@ -16,7 +16,14 @@ class View {
     this.row_center_inner2 = document.createElement('div')
     this.row_sliding_hor = document.createElement('div')
     this.row_sliding_vert = document.createElement('div')
+    this.row_sliding_vert_title = document.createElement('div')
 
+    this.svt_left = document.createElement('div')
+    this.svt_left.textContent = "Ligne"
+    this.svt_center = document.createElement('div')
+    this.svt_center.textContent = "Destination"
+    this.svt_right = document.createElement('div')
+    this.svt_right.textContent = "Temps d'attente"
 
     this.left = document.createElement('div');
     this.right = document.createElement('div')
@@ -42,17 +49,17 @@ class View {
     this.go_back_but = document.createElement('button')
     this.go_back_but.textContent = "<-"
 
-    this.plus = document.createElement('button');
-    this.moins = document.createElement('button')
-    this.text = document.createElement('input')
+    // this.plus = document.createElement('button');
+    // this.moins = document.createElement('button')
+    // this.text = document.createElement('input')
 
-    this.plus.textContent= "+"
-    this.moins.textContent='-'
+    // this.plus.textContent= "+"
+    // this.moins.textContent='-'
 
-    this.but1 = document.createElement('button');
-    this.but2 = document.createElement('button')
-    this.but1.textContent= "1"
-    this.but2.textContent='2'
+    // this.but1 = document.createElement('button');
+    // this.but2 = document.createElement('button')
+    // this.but1.textContent= "1"
+    // this.but2.textContent='2'
 
     let nodeParent = document.querySelector('#outer');
 
@@ -60,11 +67,11 @@ class View {
     // BOOTSTRAP
     // ------------------------------------------
 
-    this.moins.classList.add("btn","btn-primary", "btn-lg");
-    this.plus.classList.add("btn")
+    // this.moins.classList.add("btn","btn-primary", "btn-lg");
+    // this.plus.classList.add("btn")
 
-    this.but1.classList.add('btn')
-    this.but2.classList.add('btn')
+    // this.but1.classList.add('btn')
+    // this.but2.classList.add('btn')
 
 
     this.go_back_but.classList.add('btn', 'go_back')
@@ -75,15 +82,21 @@ class View {
     this.row_start_inner.classList.add("row")
     
     //CENTER
-    this.row_center.classList.add("row", "flex-fill", "inner_body")
-    this.row_center.setAttribute("id", "inner_body")
+    // this.row_center.classList.add("row", "flex-fill", "inner_body")
+    // this.row_center.setAttribute("id", "inner_body")
+
+    this.svt_left.classList.add("col")
+    this.svt_center.classList.add("col")
+    this.svt_right.classList.add("col")
+
 
     this.row_center_inner.classList.add("row", 'align-items-center', 'wrapper_stat_title')
     this.row_center_inner2.classList.add("row")
 
     this.row_sliding_hor.classList.add("row", "row_sliding")
 
-    this.row_sliding_vert.classList.add("row","flex-fill", "row_sliding_vert")
+    this.row_sliding_vert_title.classList.add("row", 'align-items-center', "row_sliding_vert_title")
+    this.row_sliding_vert.classList.add("row", "row_sliding_vert", "flex-fill")
 
     this.center_title.classList.add('col', 'station_title', 'border', 'rounded-pill')
     this.center_void_left.classList.add('col')
@@ -114,9 +127,16 @@ class View {
     nodeParent.appendChild(this.row_start);
     nodeParent.appendChild(this.row_center_inner);
     nodeParent.appendChild(this.row_sliding_hor);
+    nodeParent.appendChild(this.row_sliding_vert_title);
     nodeParent.appendChild(this.row_sliding_vert);
     nodeParent.appendChild(this.row_center);
     nodeParent.appendChild(this.row_end);
+
+
+
+    this.row_sliding_vert_title.appendChild(this.svt_left)
+    this.row_sliding_vert_title.appendChild(this.svt_center)
+    this.row_sliding_vert_title.appendChild(this.svt_right)
 
     this.row_start.appendChild(this.left);
     this.row_start.appendChild(this.center);
@@ -130,21 +150,21 @@ class View {
     this.row_center_inner.appendChild(this.center_void_right)
 
 
-    this.center2.appendChild(this.moins)
-    this.center2.appendChild(this.plus)
-    this.center2.appendChild(this.text)
+    // this.center2.appendChild(this.moins)
+    // this.center2.appendChild(this.plus)
+    // this.center2.appendChild(this.text)
 
-    this.row_center_inner2.appendChild(this.left2);
-    this.row_center_inner2.appendChild(this.center2);
-    this.row_center_inner2.appendChild(this.right2)
+    // this.row_center_inner2.appendChild(this.left2);
+    // this.row_center_inner2.appendChild(this.center2);
+    // this.row_center_inner2.appendChild(this.right2)
 
     this.row_end.appendChild(this.bot_left_but)
     this.row_end.appendChild(this.bot_cent_left_but)
     this.row_end.appendChild(this.bot_cent_right_but)
     this.row_end.appendChild(this.bot_right_but)
 
-    this.left2.appendChild(this.but1)
-    this.right2.appendChild(this.but2)
+    // this.left2.appendChild(this.but1)
+    // this.right2.appendChild(this.but2)
 
 
   }
@@ -161,7 +181,7 @@ class View {
       var column = document.createElement('div')
       column.classList.add('col-md-auto')
       var temp = document.createElement('button')
-      temp.classList.add('btn')
+      temp.classList.add('btn', "btn_bold")
       temp.textContent = element.text
       if (element.color === "green"){
         temp.classList.add('btn-success')
@@ -181,25 +201,57 @@ class View {
     })
   }
 
-  addIncomingLines(element){
+  addIncomingLines(element, obj){
     this.lines = []
     var child = this.row_sliding_vert.lastElementChild
     while (child) { 
       this.row_sliding_vert.removeChild(child); 
       child = this.row_sliding_vert.lastElementChild; 
     }
-    element.forEach(e => {
-      var lrow = document.createElement('div')
-      lrow.classList.add('row-md-auto')
-      var lcol1 = document.createElement('div')
-      lcol1.classList.add('col')
-      lcol1.textContent = e.ligne
-      var lcol2 = document.createElement('div')
-      lcol2.classList.add('col')
-      lcol2.textContent = e.destination
-      var lcol3 = document.createElement('div')
-      lcol3.classList.add('col')
-      lcol3.textContent = e.temps
-    })    
+    if(obj === null){
+      console.log("WORKING");
+      element.forEach(e => {
+        var lrow = document.createElement('div')
+        lrow.classList.add('row', 'align-items-center', "row_lignes")
+        var lcol1 = document.createElement('div')
+        lcol1.classList.add('col','col_lignes')
+        lcol1.textContent = e.text
+        var lcol2 = document.createElement('div')
+        lcol2.classList.add('col','col_lignes')
+        lcol2.textContent = e.destination
+        var lcol3 = document.createElement('div')
+        lcol3.classList.add('col','col_lignes')
+        lcol3.textContent = e.temps
+        this.row_sliding_vert.appendChild(lrow)
+        lrow.appendChild(lcol1)
+        lrow.appendChild(lcol2)
+        lrow.appendChild(lcol3)
+  
+      }) 
+    } else{
+      console.log("WORKING");
+      obj.temps.forEach(e => {
+        var lrow = document.createElement('div')
+        lrow.classList.add('row', 'align-items-center', "row_lignes")
+        var lcol1 = document.createElement('div')
+        lcol1.classList.add('col','col_lignes')
+        lcol1.textContent = obj.text
+        var lcol2 = document.createElement('div')
+        lcol2.classList.add('col','col_lignes')
+        lcol2.textContent = obj.dest
+        var lcol3 = document.createElement('div')
+        lcol3.classList.add('col','col_lignes')
+        lcol3.textContent = e
+        this.row_sliding_vert.appendChild(lrow)
+        lrow.appendChild(lcol1)
+        lrow.appendChild(lcol2)
+        lrow.appendChild(lcol3)
+      }) 
+    }
+    
+    var fillrow = document.createElement('div')
+    fillrow.classList.add('row', 'last_row')
+    this.row_sliding_vert.appendChild(fillrow)
+       
   }
 }

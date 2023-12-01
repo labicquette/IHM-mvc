@@ -18,22 +18,41 @@ html, body {
   height: 65px;
 }
 
+.btn_bold{
+  font-weight: 600 !important;
+  font-size:xx-large !important;
+}
+
 .btn_slider{
-  height:150px;
-  width:150px;
+  height:250px;
+  width:250px;
 }
 
 .row_sliding{
   overflow-x: scroll;
   flex-wrap: nowrap !important;
+  font-size: xx-large;
 }
 .row_sliding_vert{
   overflow-y: scroll;
-  flex-wrap: nowrap !important;
+  display: flex;
+  flex-direction: column;
+}
+.row_sliding_vert_title{
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 600;
 }
 .btn-primary{
   border-color:#2a730b !important;
+
 }
+
+.col_lignes{
+  text-align: center !important;
+  font-size: xx-large;
+  }
+
 .top{
   display: flex;
   align-items: center;
@@ -61,6 +80,14 @@ html, body {
   background-color: #8EE4AF;
   border:1px #379683 solid;
   margin-top: 10px;
+}
+
+.row_lignes{
+  height: 200px;
+}
+
+.last_row{
+  flex :1;
 }
 
 .bottom_menu{
